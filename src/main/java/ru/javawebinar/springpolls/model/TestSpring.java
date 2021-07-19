@@ -8,9 +8,9 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        Question question = context.getBean("questionBean", Question.class);
+        Poll poll = context.getBean("questionBean", Poll.class);
 
-        System.out.println(question.getTitle());
+
 
         context.close();
     }
