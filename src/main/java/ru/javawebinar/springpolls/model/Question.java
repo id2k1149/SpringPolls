@@ -1,5 +1,6 @@
 package ru.javawebinar.springpolls.model;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -7,18 +8,22 @@ import java.time.LocalDate;
 @Component
 public class Question {
     private LocalDate datePublished;
+    @Value("${question.title}")
     private String title;
     private String result;
 
 
     public Question() {
         datePublished = LocalDate.now();
-        title = "Where to have a lunch?";
         result = "no result";
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public LocalDate getDatePublished() {
+        return datePublished;
     }
 
     public void doMyInit(){
