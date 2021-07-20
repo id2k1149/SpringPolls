@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Component
-public class Question implements Poll{
+public class Question {
     private LocalDate datePublished;
     private String title;
     private String result;
@@ -31,7 +31,6 @@ public class Question implements Poll{
 
     }
 
-    @Override
     public String bestResult() {
         return result;
     }

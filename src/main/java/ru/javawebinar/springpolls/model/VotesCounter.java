@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class VotesCounter {
-    private Poll poll;
+    private Question question;
     private Answer answer;
     private Integer votes;
 
@@ -15,14 +15,14 @@ public class VotesCounter {
     }
 
     @Autowired
-    public VotesCounter(Poll poll, Answer answer) {
-        this.poll = poll;
+    public VotesCounter(Question question, Answer answer) {
+        this.question = question;
         this.answer = answer;
         votes = 0;
     }
 
-    public void setPoll(Poll poll) {
-        this.poll = poll;
+    public void setPoll(Question question) {
+        this.question = question;
     }
 
     public void setAnswer(Answer answer) {
@@ -44,13 +44,13 @@ public class VotesCounter {
     }
 
     public void maxVotes(){
-        System.out.println(poll.bestResult() + " for " + poll +
+        System.out.println(question.bestResult() + " for " + question +
                 " with "  + votes.toString() + " votes for " + answer.getName());
     }
 
     @Override
     public String toString() {
-        return "Poll " + poll +
+        return "Question " + question +
                 " Answer " + answer +
                 " votes = " + votes;
     }

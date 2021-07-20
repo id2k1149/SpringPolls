@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Voter {
     private LocalDate datePublished;
     private User user;
-    private Poll question;
+    private Question question;
     private Answer answer;
 
 }
