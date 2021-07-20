@@ -1,37 +1,29 @@
 package ru.javawebinar.springpolls.model;
 
 public class Answer {
-    private Question question;
-    private String answer;
-    private Integer votes;
+    private String name;
 
-    public Answer(Question question, String answer, Integer votes) {
-        this.question = question;
-        this.answer = answer;
-        this.votes = votes;
+    public Answer(){}
+
+    public Answer(String name) {
+        this.name = name;
     }
 
-    public Question getQuestion() {
-        return question;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public String getName() {
+        return name;
     }
 
-    public String getAnswer() {
-        return answer;
+    public void doMyInit(){
+        System.out.println("init Answer");
+
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
+    public void doMyDestroy(){
+        System.out.println("destroy Answer");
 
-    public Integer getVotes() {
-        return votes;
-    }
-
-    public void setVotes(Integer votes) {
-        this.votes = votes;
     }
 }

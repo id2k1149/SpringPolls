@@ -3,22 +3,39 @@ package ru.javawebinar.springpolls.model;
 import java.time.LocalDate;
 
 
-public class Question {
+public class Question implements Poll{
+    private LocalDate datePublished;
     private String title;
-    private LocalDate date_published;
+    private String result;
 
-    public Question(String title) {
-        this.title = title;
 
-    }
-
-    public String getTitle() {
-        return title;
+    public Question() {
+        datePublished = LocalDate.now();
+        title = "Where to have a lunch?";
+        result = "no result";
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    public void doMyInit(){
+        System.out.println("init Question");
 
+    }
+
+    public void doMyDestroy(){
+        System.out.println("destroy Question");
+
+    }
+
+    @Override
+    public String bestResult() {
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }

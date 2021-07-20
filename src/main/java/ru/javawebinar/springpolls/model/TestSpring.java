@@ -8,9 +8,15 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        Question question = context.getBean("questionBean", Question.class);
 
-        System.out.println(question.getTitle());
+        VotesCounter counter = context.getBean("voteBean", VotesCounter.class);
+
+        counter.maxVotes();
+
+        System.out.println(counter.getAnswer().getName());
+
+
+
 
         context.close();
     }
