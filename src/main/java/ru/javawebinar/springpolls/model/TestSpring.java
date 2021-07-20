@@ -8,7 +8,13 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        Poll poll = context.getBean("questionBean", Poll.class);
+
+        VotesCounter counter = context.getBean("voteBean", VotesCounter.class);
+
+        counter.maxVotes();
+
+        System.out.println(counter.getAnswer().getName());
+
 
 
 

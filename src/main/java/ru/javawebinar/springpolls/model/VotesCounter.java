@@ -1,27 +1,47 @@
 package ru.javawebinar.springpolls.model;
 
 public class VotesCounter {
-    private Diner diner;
+    private Question question;
+    private Answer answer;
     private Integer votes;
 
-    public VotesCounter(Diner diner) {
-        this.diner = diner;
+    public VotesCounter(){
+        votes = 0;
+
+    }
+
+    public VotesCounter(Question question, Answer answer) {
+        this.question = question;
+        this.answer = answer;
         votes = 0;
     }
 
-    public Diner getDiner() {
-        return diner;
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
-    public void setDiner(Diner diner) {
-        this.diner = diner;
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 
-    public Integer getVotes() {
-        return votes;
+    public Answer getAnswer() {
+        return answer;
     }
 
-    public void setVotes(Integer votes) {
-        this.votes = votes;
+    public void doMyInit(){
+        System.out.println("init Vote");
+
     }
+
+    public void doMyDestroy(){
+        System.out.println("destroy Vote");
+
+    }
+
+    public void maxVotes(){
+        System.out.println(question.bestResult() + " for " + question +
+                " with "  + votes.toString() + " votes for " + answer.getName());
+    }
+
+
 }
