@@ -7,35 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:Diner.properties"/>
-
-    <bean id="questionBean"
-          class="ru.javawebinar.springpolls.model.Question"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-    </bean>
-
-    <bean id="dinerBean"
-          class="ru.javawebinar.springpolls.model.Answer"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-<!--        <constructor-arg value="Diner #1"/>-->
-<!--        <property name="name" value="Diner #1"/>-->
-        <property name="name" value="${answer.name}"/>
-
-        
-    </bean>
-
-    <bean id="voteBean"
-          class="ru.javawebinar.springpolls.model.VotesCounter"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-        <property name="question" ref="questionBean"/>
-        <property name="answer" ref="dinerBean"/>
-
-    </bean>
+    <context:component-scan base-package="ru.javawebinar.springpolls.model"/>
 
 </beans>

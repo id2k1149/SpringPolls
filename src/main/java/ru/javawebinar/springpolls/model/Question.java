@@ -1,8 +1,10 @@
 package ru.javawebinar.springpolls.model;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 
-
+@Component
 public class Question implements Poll{
     private LocalDate datePublished;
     private String title;

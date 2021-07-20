@@ -1,9 +1,13 @@
 package ru.javawebinar.springpolls.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Answer {
     private String name;
 
-    public Answer(){}
+    public Answer() {
+        name = "Diner#3"; }
 
     public Answer(String name) {
         this.name = name;
@@ -25,5 +29,10 @@ public class Answer {
     public void doMyDestroy(){
         System.out.println("destroy Answer");
 
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
