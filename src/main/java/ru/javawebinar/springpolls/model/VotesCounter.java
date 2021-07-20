@@ -2,6 +2,7 @@ package ru.javawebinar.springpolls.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
 
 @Component
 public class VotesCounter {
@@ -13,6 +14,12 @@ public class VotesCounter {
         votes = 0;
 
     }
+
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("VotesCounter is doing its init");
+    }
+
 
     @Autowired
     public VotesCounter(Question question, Answer answer) {
@@ -33,10 +40,11 @@ public class VotesCounter {
         return answer;
     }
 
-    public void doMyInit(){
-        System.out.println("init Vote");
-
+    public Question getQuestion() {
+        return question;
     }
+
+
 
     public void doMyDestroy(){
         System.out.println("destroy Vote");
@@ -50,7 +58,8 @@ public class VotesCounter {
 
     @Override
     public String toString() {
-        return "Question " + question +
+        return question.getDatePublished() + " --> " +
+                "Question " + question +
                 " Answer " + answer +
                 " votes = " + votes;
     }
