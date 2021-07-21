@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+
+<div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="col-lg-6 mr-auto">
+        <h1>Survey for your company</h1>
+
+        <div>
+            {% if user.is_authenticated %}
+            <a href="{% url 'polls:questions' %}" class="btn btn-primary mr-2 mb-2">
+                Vote
+            </a>
+            {% else %}
+            <a href="{% url 'polls:login' %}" class="btn btn-primary mr-2 mb-2">
+                Sign in
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
