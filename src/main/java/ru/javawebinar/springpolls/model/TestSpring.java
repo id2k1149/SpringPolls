@@ -1,14 +1,13 @@
 package ru.javawebinar.springpolls.model;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.javawebinar.springpolls.spring.SpringConfig;
 
 import java.util.Map;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
-        );
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         Answer answer1 = context.getBean("answer", Answer.class);
         System.out.println(answer1.toString());
@@ -29,10 +28,9 @@ public class TestSpring {
         Map<Info, Integer> dinerMenu = menu.getItems();
 //        System.out.println(dinerMenu);
 
-        for(Map.Entry<Info, Integer> entry : dinerMenu.entrySet()) {
+        for (Map.Entry<Info, Integer> entry : dinerMenu.entrySet()) {
             System.out.println(entry.getKey().getName() + " : $" + entry.getValue());
         }
-
 
 
         System.out.println("-----");
@@ -40,8 +38,6 @@ public class TestSpring {
 
         System.out.println(counter.getAnswer().getName());
         System.out.println(counter.getQuestion().getDatePublished());
-
-
 
 
         context.close();
