@@ -1,13 +1,13 @@
 package ru.javawebinar.springpolls.model;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.javawebinar.springpolls.spring.SpringConfig;
+import ru.javawebinar.springpolls.spring.SpringConfigOld;
 
 import java.util.Map;
 
 public class TestSpring {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigOld.class);
 
         Answer answer1 = context.getBean("answer", Answer.class);
         System.out.println(answer1.toString());
