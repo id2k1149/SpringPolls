@@ -12,7 +12,7 @@ import ru.javawebinar.springpolls.model.VotesCounter;
 @Configuration
 @ComponentScan("ru.javawebinar.springpolls.model")
 @PropertySource("classpath:question.properties")
-public class SpringConfig {
+public class SpringConfigOld {
 
     @Bean
     public Answer answer() {
